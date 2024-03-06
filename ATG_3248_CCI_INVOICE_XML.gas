@@ -1,0 +1,975 @@
+Program.Sub.ScreenSU.Start
+
+Gui.F_Main..Create
+Gui.F_Main..Caption("Inovice to XML export")
+Gui.F_Main..Size(15555,8340)
+Gui.F_Main..Position(0,0)
+Gui.F_Main..AlwaysOnTop(False)
+Gui.F_Main..FontName("Arial")
+Gui.F_Main..FontSize(8)
+Gui.F_Main..ForeColor(0)
+Gui.F_Main..Backcolor(-2147483633)
+Gui.F_Main..ControlBox(True)
+Gui.F_Main..MaxButton(True)
+Gui.F_Main..MinButton(True)
+Gui.F_Main..MousePointer(0)
+Gui.F_Main..Moveable(True)
+Gui.F_Main..Sizeable(True)
+Gui.F_Main..ShowInTaskBar(True)
+Gui.F_Main..TitleBar(True)
+
+Gui.F_Main..Event(unload,f_main_unload)
+
+Gui.F_Main.gsflexgrid1.Create(gsflexgrid)
+Gui.F_Main.gsflexgrid1.Visible(True)
+Gui.F_Main.gsflexgrid1.Size(15060,6315)
+Gui.F_Main.gsflexgrid1.Zorder(0)
+Gui.F_Main.gsflexgrid1.Position(200,990)
+Gui.F_Main.gsflexgrid1.Enabled(True)
+Gui.F_Main.gsflexgrid1.FixedRows(0)
+Gui.F_Main.gsflexgrid1.FixedCols(0)
+
+
+Gui.F_Main.cmdSend.Create(button)
+Gui.F_Main.cmdSend.Caption("Send")
+Gui.F_Main.cmdSend.Visible(True)
+Gui.F_Main.cmdSend.Size(855,375)
+Gui.F_Main.cmdSend.Zorder(0)
+Gui.F_Main.cmdSend.Position(200,7400)
+Gui.F_Main.cmdSend.Enabled(True)
+Gui.F_Main.cmdSend.FontName("Arial")
+Gui.F_Main.cmdSend.FontSize(8)
+Gui.F_Main.cmdSend.TabStop(True)
+Gui.F_Main.cmdSend.TabIndex(1)
+Gui.F_Main.cmdSend.Tooltip("")
+Gui.F_Main.cmdSend.ControlGroup(0)
+Gui.F_Main.cmdSend.DefaultValue("")
+
+Gui.F_Main.cmdSend.Event(click,cmdsend_click)
+
+Gui.F_Main.cmdFilter.Create(button)
+Gui.F_Main.cmdFilter.Caption("Filter")
+Gui.F_Main.cmdFilter.Visible(True)
+Gui.F_Main.cmdFilter.Size(855,300)
+Gui.F_Main.cmdFilter.Zorder(0)
+Gui.F_Main.cmdFilter.Position(5460,300)
+Gui.F_Main.cmdFilter.Enabled(True)
+Gui.F_Main.cmdFilter.FontName("Arial")
+Gui.F_Main.cmdFilter.FontSize(8)
+Gui.F_Main.cmdFilter.TabStop(True)
+Gui.F_Main.cmdFilter.TabIndex(2)
+Gui.F_Main.cmdFilter.Tooltip("")
+Gui.F_Main.cmdFilter.ControlGroup(0)
+Gui.F_Main.cmdFilter.DefaultValue("")
+
+Gui.F_Main.cmdFilter.Event(click,cmdfilter_click)
+
+Gui.F_Main.dpStart.Create(datepicker)
+Gui.F_Main.dpStart.Visible(True)
+Gui.F_Main.dpStart.Size(1935,300)
+Gui.F_Main.dpStart.Zorder(0)
+Gui.F_Main.dpStart.Position(180,360)
+Gui.F_Main.dpStart.Enabled(True)
+Gui.F_Main.dpStart.Checkbox(False)
+Gui.F_Main.dpStart.TabStop(True)
+Gui.F_Main.dpStart.TabIndex(3)
+Gui.F_Main.dpStart.Tooltip("")
+Gui.F_Main.dpStart.ControlGroup(0)
+Gui.F_Main.dpStart.DefaultValue("")
+
+
+Gui.F_Main.dpEnd.Create(datepicker)
+Gui.F_Main.dpEnd.Visible(True)
+Gui.F_Main.dpEnd.Size(1935,300)
+Gui.F_Main.dpEnd.Zorder(0)
+Gui.F_Main.dpEnd.Position(2145,360)
+Gui.F_Main.dpEnd.Enabled(True)
+Gui.F_Main.dpEnd.Checkbox(False)
+Gui.F_Main.dpEnd.TabStop(True)
+Gui.F_Main.dpEnd.TabIndex(4)
+Gui.F_Main.dpEnd.Tooltip("")
+Gui.F_Main.dpEnd.ControlGroup(0)
+Gui.F_Main.dpEnd.DefaultValue("")
+
+
+Gui.F_Main.lbl2.Create(label)
+Gui.F_Main.lbl2.Caption("Start Date")
+Gui.F_Main.lbl2.Visible(True)
+Gui.F_Main.lbl2.Size(1935,255)
+Gui.F_Main.lbl2.Zorder(1)
+Gui.F_Main.lbl2.Position(200,100)
+Gui.F_Main.lbl2.Enabled(True)
+Gui.F_Main.lbl2.Alignment(0)
+Gui.F_Main.lbl2.FontName("Arial")
+Gui.F_Main.lbl2.FontSize(8)
+Gui.F_Main.lbl2.Backcolor(-2147483633)
+Gui.F_Main.lbl2.BackStyle(0)
+Gui.F_Main.lbl2.Tooltip("")
+Gui.F_Main.lbl2.ControlGroup(0)
+
+
+Gui.F_Main.lbl3.Create(label)
+Gui.F_Main.lbl3.Caption("End Date")
+Gui.F_Main.lbl3.Visible(True)
+Gui.F_Main.lbl3.Size(1935,255)
+Gui.F_Main.lbl3.Zorder(1)
+Gui.F_Main.lbl3.Position(2190,100)
+Gui.F_Main.lbl3.Enabled(True)
+Gui.F_Main.lbl3.Alignment(0)
+Gui.F_Main.lbl3.FontName("Arial")
+Gui.F_Main.lbl3.FontSize(8)
+Gui.F_Main.lbl3.Backcolor(-2147483633)
+Gui.F_Main.lbl3.BackStyle(0)
+Gui.F_Main.lbl3.Tooltip("")
+Gui.F_Main.lbl3.ControlGroup(0)
+
+
+Gui.F_Main.chkShow.Create(checkbox)
+Gui.F_Main.chkShow.Alignment(0)
+Gui.F_Main.chkShow.Caption("Show All")
+Gui.F_Main.chkShow.Visible(False)
+Gui.F_Main.chkShow.Size(1095,255)
+Gui.F_Main.chkShow.Zorder(0)
+Gui.F_Main.chkShow.Position(4190,360)
+Gui.F_Main.chkShow.Enabled(True)
+Gui.F_Main.chkShow.FontName("Arial")
+Gui.F_Main.chkShow.FontSize(8)
+Gui.F_Main.chkShow.TabStop(True)
+Gui.F_Main.chkShow.TabIndex(7)
+Gui.F_Main.chkShow.Tooltip("")
+Gui.F_Main.chkShow.ControlGroup(0)
+Gui.F_Main.chkShow.DefaultValue("")
+
+
+Gui.F_SentReport..Create
+Gui.F_SentReport..Caption("Transmission Report")
+Gui.F_SentReport..Size(6855,6375)
+Gui.F_SentReport..Position(0,0)
+Gui.F_SentReport..AlwaysOnTop(False)
+Gui.F_SentReport..FontName("Arial")
+Gui.F_SentReport..FontSize(8)
+Gui.F_SentReport..ForeColor(0)
+Gui.F_SentReport..Backcolor(-2147483633)
+Gui.F_SentReport..ControlBox(True)
+Gui.F_SentReport..MaxButton(True)
+Gui.F_SentReport..MinButton(True)
+Gui.F_SentReport..MousePointer(0)
+Gui.F_SentReport..Moveable(True)
+Gui.F_SentReport..Sizeable(False)
+Gui.F_SentReport..ShowInTaskBar(True)
+Gui.F_SentReport..TitleBar(True)
+
+Gui.F_SentReport..Event(unload,f_sentreport_unload)
+
+Gui.F_SentReport.flexgrid1.Create(hflexgrid)
+Gui.F_SentReport.flexgrid1.Visible(True)
+Gui.F_SentReport.flexgrid1.Size(6315,4725)
+Gui.F_SentReport.flexgrid1.Zorder(0)
+Gui.F_SentReport.flexgrid1.Position(200,200)
+Gui.F_SentReport.flexgrid1.Enabled(True)
+Gui.F_SentReport.flexgrid1.FixedRows(0)
+Gui.F_SentReport.flexgrid1.FixedCols(0)
+Gui.F_SentReport.flexgrid1.FontName("Arial")
+Gui.F_SentReport.flexgrid1.FontSize(9)
+Gui.F_SentReport.flexgrid1.TabStop(True)
+Gui.F_SentReport.flexgrid1.TabIndex(0)
+
+
+Gui.F_SentReport.cmdPrint.Create(button)
+Gui.F_SentReport.cmdPrint.Caption("Print")
+Gui.F_SentReport.cmdPrint.Visible(True)
+Gui.F_SentReport.cmdPrint.Size(855,375)
+Gui.F_SentReport.cmdPrint.Zorder(0)
+Gui.F_SentReport.cmdPrint.Position(200,5100)
+Gui.F_SentReport.cmdPrint.Enabled(True)
+Gui.F_SentReport.cmdPrint.FontName("Arial")
+Gui.F_SentReport.cmdPrint.FontSize(8)
+Gui.F_SentReport.cmdPrint.TabStop(True)
+Gui.F_SentReport.cmdPrint.TabIndex(1)
+Gui.F_SentReport.cmdPrint.Tooltip("")
+Gui.F_SentReport.cmdPrint.ControlGroup(0)
+Gui.F_SentReport.cmdPrint.DefaultValue("")
+
+Gui.F_SentReport.cmdPrint.Event(click,cmdprint_click)
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.UDT.uProc.Define("Inovice",String)
+Variable.UDT.uProc.Define("bSuccess",Boolean)
+Variable.UDT.uProc.Define("sError",String)
+Variable.UDT.uProc.Define("iError",Long,0)
+Variable.uGlobal.uInvoice.Declare("uProc")
+Variable.Global.iInvoiceProc.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Coded by: JND
+'Project Start Date: 10/31/2011
+'Notes:
+'  Quote 2939
+
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+F.Intrinsic.Control.CallSub(Setupgrid)
+V.uGlobal.uInvoice.redim(-1,-1)
+'
+'F.Communication.WebForm.SetProperty("Encoding",0)
+'F.Communication.WebForm.AddFormVar("cxml","TEST")
+'F.Communication.WebForm.SetProperty("PROXYSERVER","192.0.0.20")
+'F.Communication.WebForm.SetProperty("ProxyAutoDetect","True")
+'F.Communication.WebForm.SetProperty("URL","https://usertest.sciquest.com/apps/Router/CXMLInvoiceImport")
+'F.Communication.WebForm.Submit
+F.Intrinsic.Control.AddEventHandler("HTTPSTransfer","EndTransfer")
+Gui.F_Main..Show
+'F.Intrinsic.Control.CallSub(Genxml,"invoice","544115")
+
+
+Program.Sub.Main.End
+
+program.sub.f_main_unload.start
+F.Intrinsic.Control.End
+
+program.sub.f_main_unload.end
+
+program.sub.cmdfilter_click.start
+
+F.Intrinsic.Control.CallSub(Populategrid)
+
+program.sub.cmdfilter_click.end
+
+program.sub.cmdsend_click.start
+Gui.F_Main..Enabled(false)
+F.Intrinsic.Control.CallSub(Procgrid)
+Gui.F_Main..Enabled(True)
+
+program.sub.cmdsend_click.end
+
+program.sub.cmdbrowse_click.start
+
+program.sub.cmdbrowse_click.end
+
+Program.Sub.ProcGrid.Start
+V.Local.iRows.Declare(Long)
+V.Local.iR.Declare(Long)
+V.Local.sVal.Declare(Long)
+
+F.Intrinsic.Math.Sub(V.Screen.F_Main!gsflexgrid1.Rows,1,V.Local.iRows)
+
+F.Intrinsic.Control.For(V.Local.iR,1,V.Local.iRows,1)
+	Gui.F_Main.gsflexgrid1.gettextmatrix(0,V.local.ir,V.local.sVal)
+	F.Intrinsic.Control.If(V.Local.sVal,=,1)
+		Gui.F_Main.gsflexgrid1.gettextmatrix(1,V.local.ir,V.local.sVal)
+		F.Intrinsic.Control.CallSub(Genxml,"Invoice",V.Local.sVal,"iRow",V.local.ir)
+	F.Intrinsic.Control.endif
+F.Intrinsic.Control.Next(V.Local.iR)
+
+F.Intrinsic.Control.CallSub(Loadreport)
+
+Program.Sub.ProcGrid.End
+
+Program.Sub.GenXML.Start
+'Function is used to generate a single XML document
+
+V.Local.sDoc.Declare(String)
+V.Local.sRoot.Declare(String)
+V.Local.sHeader.Declare(String)
+V.Local.sNode.Declare(String)
+V.Local.stemp.Declare(String)
+V.Local.shold.Declare(String)
+V.Local.dateHold.Declare(String)
+V.Local.dTotal.Declare(Float)
+V.Local.sFile.Declare(String)
+V.Local.sURL.Declare(String)
+V.Local.sRet.Declare(String)
+
+V.Local.shold.Redim(0,2)
+
+F.Intrinsic.String.Concat("INVOICE-",V.Args.invoice,".xml",V.Local.sDoc)
+F.Global.XML.CreateDocument(V.Local.sDoc,False,True,False,False)
+V.Local.sRoot.Set("cXML")
+F.Global.XML.SetRoot(V.Local.sDoc,V.Local.sRoot)
+V.global.iInvoiceProc.Set(V.args.invoice)
+
+F.Intrinsic.String.Format(V.Ambient.Now,"YYYY-MM-DDTHH:nn:ssZ",V.Local.stemp)
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"timestamp",V.Local.sTemp)
+F.Global.XML.SetAttributeToRoot(V.Local.sDoc,"timestamp")
+F.Global.XML.DestroyNode(V.Local.sDoc,"timestamp")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"xml:lang","en-US")
+F.Global.XML.SetAttributeToRoot(V.Local.sDoc,"xml:lang")
+F.Global.XML.DestroyNode(V.Local.sDoc,"xml:lang")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"version","1.2.011")
+F.Global.XML.SetAttributeToRoot(V.Local.sDoc,"version")
+F.Global.XML.DestroyNode(V.Local.sDoc,"version")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"payloadID","")
+F.Global.XML.SetAttributeToRoot(V.Local.sDoc,"payloadID")
+F.Global.XML.DestroyNode(V.Local.sDoc,"payloadID")
+F.Intrinsic.Control.CallSub(Genxmlheader,"sDoc",V.Local.sDoc)
+
+'Begin Request
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Request","")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"deploymentMode","test")
+F.Global.XML.SetAttributeTonode(V.Local.sDoc,"Request","deploymentMode")
+F.Global.XML.DestroyNode(V.Local.sDoc,"deploymentMode")
+
+'Begin INvoice request
+F.Global.XML.CreateElementNode(V.Local.sDoc,"InvoiceDetailRequest","")
+
+'Begin Invoice Request Header - break out into sub
+V.Local.sHeader.Set("InvoiceDetailRequestHeader")
+F.Global.XML.CreateElementNode(V.Local.sDoc,V.Local.sHeader,"")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"invoiceID",V.args.invoice)
+F.Global.XML.setattributetoNode(V.Local.sDoc,V.Local.sHeader,"invoiceID")
+F.Global.XML.DestroyNode(V.Local.sDoc,"invoiceID")
+
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"purpose","standard")
+F.Global.XML.setattributetoNode(V.Local.sDoc,V.Local.sHeader,"purpose")
+F.Global.XML.DestroyNode(V.Local.sDoc,"purpose")
+
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"operation","new")
+F.Global.XML.setattributetoNode(V.Local.sDoc,V.Local.sHeader,"operation")
+F.Global.XML.DestroyNode(V.Local.sDoc,"operation")
+Gui.F_Main.gsflexgrid1.GetTextMatrix(9,V.args.irow,V.Local.stemp)
+F.Intrinsic.String.Left(V.Local.stemp,4,V.Local.shold(0))
+F.Intrinsic.String.Right(V.Local.stemp,2,V.Local.shold(1))
+F.Intrinsic.String.Mid(V.Local.stemp,5,2,V.Local.shold(2))
+F.Intrinsic.String.Concat(V.Local.shold(0),"-",V.Local.shold(2),"-",V.Local.shold(1),V.local.stemp)
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"invoiceDate",V.Local.stemp)
+F.Global.XML.setattributetoNode(V.Local.sDoc,V.Local.sHeader,"invoiceDate")
+F.Global.XML.DestroyNode(V.Local.sDoc,"invoiceDate")
+
+F.Global.XML.CreateelementNode(V.Local.sDoc,"InvoiceDetailHeaderIndicator","")
+F.Global.XML.AppendNode(V.Local.sDoc,V.Local.sHeader,"InvoiceDetailHeaderIndicator")
+F.Global.XML.DestroyNode(V.Local.sdoc,"InvoiceDetailHeaderIndicator")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"InvoiceDetailLineIndicator","")
+F.Global.XML.AppendNode(V.Local.sDoc,V.Local.sHeader,"InvoiceDetailLineIndicator")
+F.Global.XML.DestroyNode(V.Local.sdoc,"InvoiceDetailLineIndicator")
+F.Intrinsic.control.CallSub(Genxmlcontact,"sDoc",V.Local.sDoc,"sHeader",V.Local.sHeader,"iRow",V.Args.irow)
+
+'End Request HEader
+F.Global.XML.AppendNode(V.Local.sDoc,"InvoiceDetailRequest",V.Local.sHeader)
+F.Global.XML.DestroyNode(V.Local.sdoc,V.Local.sHeader)
+
+V.Local.sHeader.Set("InvoiceDetailOrder")
+F.Global.XML.CreateElementNode(V.Local.sDoc,V.Local.sHeader,"")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"InvoiceDetailOrderInfo","")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"OrderReference","")
+Gui.F_Main.gsflexgrid1.GetTextMatrix(2,V.args.iRow,V.Local.shold)
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"orderID",V.Local.shold)
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"OrderReference","orderID")
+F.Global.XML.destroynode(V.Local.sDoc,"orderID")
+Gui.F_Main.gsflexgrid1.GetTextMatrix(10,V.args.iRow,V.Local.shold)
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"orderDate",V.Local.shold)
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"OrderReference","orderDate")
+F.Global.XML.destroynode(V.Local.sDoc,"orderDate")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"DocumentReference","")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"payloadID","")
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"DocumentReference","payloadID")
+F.Global.XML.DestroyNode(V.Local.sDoc,"payloadID")
+F.Global.XML.AppendNode(V.Local.sdoc,"OrderReference","DocumentReference")
+F.Global.XML.DestroyNode(V.Local.sDoc,"DocumentReference")
+F.Global.XML.AppendNode(V.Local.sDoc,"InvoiceDetailOrderInfo","OrderReference")
+F.Global.XML.DestroyNode(V.Local.sDoc,"OrderReference")
+F.Global.XML.appendnode(V.Local.sDoc,V.Local.sHeader,"InvoiceDetailOrderInfo")
+F.Global.XML.Destroynode(V.Local.sDoc,"InvoiceDetailOrderInfo")
+
+F.Intrinsic.Control.CallSub(Genxmllines,"sDoc",V.Local.sDoc,"invoice",V.Args.invoice,"sHeader",V.Local.sHeader)
+'End Request Detial
+V.Local.dTotal.Set(V.Args.total)
+
+F.Global.XML.AppendNode(V.Local.sDoc,"InvoiceDetailRequest",V.Local.sHeader)
+F.Global.XML.DestroyNode(V.Local.sdoc,V.Local.sHeader)
+
+'TODO SUmmary section
+F.global.XML.CreateElementNode(V.Local.sDoc,"InvoiceDetailSummary","")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"SubtotalAmount",V.Local.dTotal)
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"currency",V.Args.currency)
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"SubtotalAmount","currency")
+F.Global.XML.DestroyNode(V.Local.sDoc,"currency")
+F.Global.XML.AppendNode(V.Local.sDoc,"InvoiceDetailSummary","SubtotalAmount")
+F.Global.XML.DestroyNode(V.Local.sDoc,"SubtotalAmount")
+
+F.Global.XML.CreateElementNode(V.Local.sDoc,"GrossAmount",V.Local.dTotal)
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"currency",V.Args.currency)
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"GrossAmount","currency")
+F.Global.XML.DestroyNode(V.Local.sDoc,"currency")
+F.Global.XML.AppendNode(V.Local.sDoc,"InvoiceDetailSummary","GrossAmount")
+F.Global.XML.DestroyNode(V.Local.sDoc,"GrossAmount")
+
+F.Global.XML.CreateElementNode(V.Local.sDoc,"NetAmount",V.Local.dTotal)
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"currency",V.Args.currency)
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"NetAmount","currency")
+F.Global.XML.DestroyNode(V.Local.sDoc,"currency")
+F.Global.XML.AppendNode(V.Local.sDoc,"InvoiceDetailSummary","NetAmount")
+F.Global.XML.DestroyNode(V.Local.sDoc,"NetAmount")
+
+F.Global.XML.AppendNode(V.Local.sDoc,"InvoiceDetailRequest","InvoiceDetailSummary")
+F.Global.XML.DestroyNode(V.Local.sDoc,"InvoiceDetailSummary")
+
+'End Invoice Detail Request
+F.global.XML.AppendNode(V.Local.sDoc,"Request","InvoiceDetailRequest")
+F.Global.XML.DestroyNode(V.Local.sDoc,"InvoiceDetailRequest")
+'End Request
+F.Global.XML.AppendNodeToRoot(V.Local.sDoc,"Request")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Request")
+
+F.Global.XML.SaveDocument(V.Local.sDoc,V.caller.FilesDir,V.Local.sDoc)
+F.Global.XML.CloseDocument(V.Local.sDoc)
+F.Intrinsic.String.Concat(V.caller.FilesDir,"\",V.Local.sDoc,V.Local.sDoc)
+
+F.Intrinsic.file.File2String(V.Local.sDoc,V.Local.sFile)
+F.Intrinsic.String.Concat("<?xml version=",V.Ambient.DblQuote,"1.0",V.Ambient.DblQuote," encoding=",V.Ambient.DblQuote,"UTF-8",V.Ambient.DblQuote,"?><!DOCTYPE cXML SYSTEM ",V.Ambient.DblQuote,"http://xml.cXML.org/schemas/cXML/1.2.011/InvoiceDetail.dtd",V.Ambient.DblQuote,">",V.local.sheader)
+F.Intrinsic.String.Concat("<?xml version=",V.Ambient.DblQuote,"1.0",V.Ambient.DblQuote,"?>",V.local.shold)
+
+F.Intrinsic.String.Replace(V.Local.sFile,V.Local.shold,V.Local.sHeader,V.Local.sFile)
+F.Intrinsic.String.Replace(V.Local.sFile,V.Ambient.NewLine,"",V.Local.sFile)
+F.Intrinsic.file.String2File(V.Local.sDoc,V.Local.sFile)
+F.Communication.Misc.EncodeToString(3,V.Local.sFile,V.Local.sFile)
+
+
+F.Communication.https.ResetHeaders
+F.Intrinsic.String.Concat("https://usertest.sciquest.com/apps/Router/CXMLInvoiceImport?cxml=",V.Local.sFile,V.Local.sURL)
+f.Communication.https.post(v.Local.surl)
+
+''F.Communication.WebForm.SetProperty("AuthScheme",)
+'F.Communication.WebForm.SetProperty("Encoding",2)
+'F.Communication.WebForm.AddFormVar("cxml",V.Local.sFile)
+'F.Communication.WebForm.SetProperty("URL","http://usertest.sciquest.com/apps/Router/CXMLInvoiceImport")
+'F.Communication.WebForm.Submit
+'
+'' "https://usertest.sciquest.com/apps/Router/CXMLInvoiceImport"
+''F.Intrinsic.String.Concat("cxml=",V.Local.sFile,V.Local.sURL)
+''F.Communication.http.SetProperty("ContentType","application/x-www-form-urlencoded")
+''F.Communication.HTTP.SetProperty("POSTDATA","cxml=Test"..)
+'
+'F.Intrinsic.String.Concat("https://usertest.sciquest.com/apps/Router/CXMLInvoiceImport?cxml=",V.Local.sFile,V.Local.sURL)
+''F.Intrinsic.String.Concat(V.Caller.FilesDir,"\XMLRESPONSE.xml",V.Local.sRet)
+''F.Communication.HTTP.Post("https://usertest.sciquest.com/apps/Router/CXMLInvoiceImport")
+'
+'F.Intrinsic.Debug.DumpVariableList
+'Gui.F_Main.hmtlX.Navigate(V.Local.sURL)
+'f.Communication.HTTP.downloadFile(V.Local.sURL,v.Local.sRet)
+'OPen return file check for error.
+'F.Intrinsic.Control.CallSub(Procxmlret,"sRet",V.Local.sret)
+
+Program.Sub.GenXML.End
+
+Program.Sub.PopulateGrid.Start
+
+V.Local.sQuery.Declare(String)
+V.Local.sStartDate.Declare(String)
+V.Local.sEndDate.Declare(String)
+Gui.F_Main.gsflexgrid1.Visible(false)
+
+F.Intrinsic.String.Format(V.Screen.F_Main!dpStart.Value,"YYYYMMDD",V.Local.sStartDate)
+F.Intrinsic.String.Format(V.Screen.F_Main!dpEnd.Value,"YYYYMMDD",V.Local.sEndDate)
+
+F.Intrinsic.String.Concat("select '1' as FLAG1, INVOICE, ORDER_NO, CUSTOMER, NAME_CUSTOMER, ADDRESS1, CITY, STATE, ZIP, DATE_INVOICE,DATE_ORDER  from ORDER_HIST_HEAD WHERE USER_5 <> 'PREPAID' AND (CUSTOMER = 'UNIV15' OR CUSTOMER = 'UNIV16' OR CUSTOMER = 'UNIV17) AND DATE_INVOICE >= '",V.Local.sStartDate,"' AND DATE_INVOICE <='",V.Local.sEndDate,"'",V.Local.squery)
+'For test
+'EXCLUDE user 5 if equal to PREPAID
+
+'V.Local.sQuery.Set("select '1' as FLAG1, INVOICE, ORDER_NO, CUSTOMER, NAME_CUSTOMER, ADDRESS1, CITY, STATE, ZIP, DATE_INVOICE, DATE_ORDER  from ORDER_HIST_HEAD WHERE INVOICE = '544115'")
+
+F.ODBC.Connection!conx.OpenRecordsetRO("rstGrid",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rstGrid.EOF,=,False)
+	Gui.F_Main.gsflexgrid1.LoadRecordset("conx!rstGrid",1,True)
+F.Intrinsic.Control.endif
+Gui.F_Main.gsflexgrid1.Visible(true)
+
+F.ODBC.Conx!rstGrid.Close
+
+Program.Sub.PopulateGrid.End
+
+Program.Sub.SetupGrid.Start
+V.Local.ix.Declare(Long)
+
+Gui.F_Main.gsflexgrid1.Rows(2)
+Gui.F_Main.gsflexgrid1.Cols(11)
+
+Gui.F_Main.gsflexgrid1.TextMatrix(1,0,"Invoice")
+Gui.F_Main.gsflexgrid1.TextMatrix(2,0,"Order #")
+Gui.F_Main.gsflexgrid1.TextMatrix(3,0,"Customer")
+Gui.F_Main.gsflexgrid1.TextMatrix(4,0,"Name")
+Gui.F_Main.gsflexgrid1.TextMatrix(5,0,"Address 1")
+Gui.F_Main.gsflexgrid1.TextMatrix(6,0,"City")
+Gui.F_Main.gsflexgrid1.TextMatrix(7,0,"State")
+Gui.F_Main.gsflexgrid1.TextMatrix(8,0,"Zip")
+Gui.F_Main.gsflexgrid1.TextMatrix(9,0,"Invoice Date")
+Gui.F_Main.gsflexgrid1.TextMatrix(10,0,"OrderDate")
+Gui.F_Main.gsflexgrid1.SetColumnPercentages(".03:.05:.05:.05:.17:.2:.2:.05:.05:.08:.08")
+Gui.F_Main.gsflexgrid1.BuildStyle(1,0,"type","checkbox","")
+F.Intrinsic.Control.For(V.Local.ix,1,10,1)
+	Gui.F_Main.gsflexgrid1.BuildStyle(1,V.Local.ix,"type","locked",True)
+F.Intrinsic.Control.Next(V.Local.ix)
+
+'Gui.F_Main.gsflexgrid1.BuildStyle(1,9,"format","mask","YYYY-MM-DD")
+'Gui.F_Main.gsflexgrid1.BuildStyle(1,10,"format","mask","YYYY-MM-DD")
+
+Gui.F_Main.gsflexgrid1.FixedRows(1)
+
+
+Program.Sub.SetupGrid.End
+
+Program.Sub.GenXMLHeader.Start
+V.Local.sDoc.Declare(String)
+V.Local.sRoot.Declare(String)
+V.Local.sNode.Declare(String)
+V.Local.sHeader.Declare(String)
+
+V.Local.sDoc.Set(V.Args.sDoc)
+
+'Header start
+V.Local.sHeader.Set("Header")
+F.Global.XML.CreateElementNode(V.Local.sDoc,V.Local.sHeader,"")
+F.Global.XML.Createelementnode(V.Local.sDoc,"From","")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Credential","")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"domain","NetworkID")
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"Credential","domain")
+F.Global.XML.DestroyNode(V.Local.sDoc,"domain")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Identity","coloradoci")
+F.Global.XML.AppendNode(V.Local.sDoc,"Credential","Identity")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Identity")
+F.Global.XML.AppendNode(V.Local.sDoc,"From","Credential")
+F.global.XML.DestroyNode(V.Local.sDoc,"Credential")
+F.Global.XML.AppendNode(V.Local.sDoc,V.Local.sHeader,"From")
+
+'To Section
+F.Global.XML.Createelementnode(V.Local.sDoc,"To","")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Credential","")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"domain","NetworkID")
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"Credential","domain")
+F.Global.XML.DestroyNode(V.Local.sDoc,"domain")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Identity","UniversityofColorado")
+F.Global.XML.AppendNode(V.Local.sDoc,"Credential","Identity")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Identity")
+F.Global.XML.AppendNode(V.Local.sDoc,"To","Credential")
+F.global.XML.DestroyNode(V.Local.sDoc,"Credential")
+F.Global.XML.AppendNode(V.Local.sDoc,V.Local.sHeader,"To")
+
+'Sender
+
+F.Global.XML.Createelementnode(V.Local.sDoc,"Sender","")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Credential","")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"domain","NetworkID")
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"Credential","domain")
+F.Global.XML.DestroyNode(V.Local.sDoc,"domain")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Identity","coloradoci")
+F.Global.XML.AppendNode(V.Local.sDoc,"Credential","Identity")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Identity")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"SharedSecret","c00kies")
+F.Global.XML.AppendNode(V.Local.sDoc,"Credential","SharedSecret")
+F.Global.XML.DestroyNode(V.Local.sDoc,"SharedSecret")
+F.Global.XML.AppendNode(V.Local.sDoc,"Sender","Credential")
+F.global.XML.DestroyNode(V.Local.sDoc,"Credential")
+
+F.Global.XML.CreateElementNode(V.Local.sDoc,"UserAgent","CCI")
+f.Global.XML.AppendNode(V.Local.sDoc,"Sender","UserAgent")
+F.Global.XML.AppendNode(V.Local.sDoc,V.Local.sHeader,"Sender")
+F.global.XML.DestroyNode(V.Local.sDoc,"Sender")
+F.Global.XML.AppendNodeToRoot(V.Local.sDoc,V.Local.sheader)
+F.Global.XML.DestroyNode(V.Local.sDoc,V.Local.sHeader)
+
+Program.Sub.GenXMLHeader.End
+
+Program.Sub.GenXMLContact.Start
+V.Local.sdoc.Declare(String)
+V.Local.sHeader.Declare(String)
+V.Local.iRow.Declare(String)
+V.Local.shold.Declare(String)
+
+V.Local.sdoc.Set(V.args.sDoc)
+V.Local.sHeader.Set(V.Args.sheader)
+V.local.iRow.Set(V.Args.irow)
+
+F.Global.xml.CreateElementNode(V.Local.sDoc,"InvoicePartner","")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Contact","")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"role","billTo")
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"Contact","role")
+F.Global.XML.destroyNode(V.Local.sDoc,"role")
+
+Gui.F_Main.gsflexgrid1.GetTextMatrix(4,V.Local.iRow,V.Local.shold)
+F.Global.XML.CreateelementNode(V.Local.sDoc,"Name",V.Local.shold)
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"xml:lang","en-US")
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"Name","xml:lang")
+F.Global.XML.DestroyNode(V.Local.sDoc,"xml:lang")
+F.Global.XML.AppendNode(V.Local.sDoc,"Contact","Name")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Name")
+
+'start postal Address todo fetch from server
+
+F.Global.XML.CreateElementNode(V.Local.sDoc,"PostalAddress","")
+Gui.F_Main.gsflexgrid1.GetTextMatrix(5,V.Local.iRow,V.Local.shold)
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Street",V.Local.shold)
+Gui.F_Main.gsflexgrid1.GetTextMatrix(6,V.Local.iRow,V.Local.shold)
+F.Global.XML.CreateElementNode(V.Local.sDoc,"City",V.Local.shold)
+Gui.F_Main.gsflexgrid1.GetTextMatrix(7,V.Local.iRow,V.Local.shold)
+F.Global.XML.CreateElementNode(V.Local.sDoc,"State",V.Local.shold)
+Gui.F_Main.gsflexgrid1.GetTextMatrix(8,V.Local.iRow,V.Local.shold)
+F.Global.XML.CreateElementNode(V.Local.sDoc,"PostalCode",V.Local.shold)
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Country","UnitedStates")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"isoCountryCode","US")
+F.Global.XML.SetAttributeToNode(V.Local.sdoc,"Country","isoCountryCode")
+F.Global.XML.DestroyNode(V.Local.sDoc,"isoCountryCode")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","Street")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","City")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","State")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","PostalCode")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","Country")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Street")
+F.Global.XML.DestroyNode(V.Local.sDoc,"City")
+F.Global.XML.DestroyNode(V.Local.sDoc,"State")
+F.Global.XML.DestroyNode(V.Local.sDoc,"PostalCode")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Country")
+
+F.Global.XML.AppendNode(V.Local.sDoc,"Contact","PostalAddress")
+F.Global.XML.DestroyNode(V.Local.sDoc,"PostalAddress")
+
+F.Global.XML.AppendNode(V.Local.sDoc,"InvoicePartner","Contact")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Contact")
+'end invoice partner
+F.global.XML.AppendNode(V.Local.sDoc,V.Local.sHeader,"InvoicePartner")
+F.Global.XML.DestroyNode(V.Local.sDoc,"InvoicePartner")
+
+
+'Start INvoice Partner
+F.Global.xml.CreateElementNode(V.Local.sDoc,"InvoicePartner","")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Contact","")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"role","remitTo")
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"Contact","role")
+F.Global.XML.destroyNode(V.Local.sDoc,"role")
+
+F.Global.XML.CreateelementNode(V.Local.sDoc,"Name","Colorado Correctional Industries")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"xml:lang","en-US")
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"Name","xml:lang")
+F.Global.XML.DestroyNode(V.Local.sDoc,"xml:lang")
+F.Global.XML.AppendNode(V.Local.sDoc,"Contact","Name")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Name")
+
+'start postal Address
+F.Global.XML.CreateElementNode(V.Local.sDoc,"PostalAddress","")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Street","P.O. Box 230")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"City","Canon City")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"State","CO")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"PostalCode","81215")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Country","UnitedStates")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"isoCountryCode","US")
+F.Global.XML.SetAttributeToNode(V.Local.sdoc,"Country","isoCountryCode")
+F.Global.XML.DestroyNode(V.Local.sDoc,"isoCountryCode")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","Street")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","City")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","State")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","PostalCode")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","Country")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Street")
+F.Global.XML.DestroyNode(V.Local.sDoc,"City")
+F.Global.XML.DestroyNode(V.Local.sDoc,"State")
+F.Global.XML.DestroyNode(V.Local.sDoc,"PostalCode")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Country")
+
+F.Global.XML.AppendNode(V.Local.sDoc,"Contact","PostalAddress")
+F.Global.XML.DestroyNode(V.Local.sDoc,"PostalAddress")
+
+F.Global.XML.AppendNode(V.Local.sDoc,"InvoicePartner","Contact")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Contact")
+'end invoice partner
+F.global.XML.AppendNode(V.Local.sDoc,V.Local.sHeader,"InvoicePartner")
+F.Global.XML.DestroyNode(V.Local.sDoc,"InvoicePartner")
+
+Program.Sub.GenXMLContact.End
+
+Program.Sub.GenXMLLines.Start
+V.Local.sInvoice.Declare(String)
+V.Local.sDoc.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sItem.Declare(String)
+V.Local.sRef.Declare(String)
+V.Local.iLine.Declare(Long)
+V.Local.sHeader.Declare(String)
+V.Local.dTotal.Declare(Float)
+V.Local.dTemp.Declare(Float)
+V.Local.sDoc.Set(V.Args.sDoc)
+V.Local.sInvoice.Set(V.Args.invoice)
+V.Local.sHeader.Set(V.Args.sheader)
+'Headers should be node InvoiceDetailOrder
+
+F.Intrinsic.String.Concat("SELECT PART, DESCRIPTION, PRICE_ORDER,ORDER_LINE, ORDER_CURRENCY,UM,SUM(QTY_SHIPPED) AS QTY FROM ORDER_HIST_LINE WHERE INVOICE = '",V.Local.sInvoice,"' GROUP BY PART, DESCRIPTION, PRICE_ORDER,UM,  ORDER_CURRENCY,ORDER_LINE ORDER BY ORDER_LINE",V.Local.sQuery)
+
+F.ODBC.Connection!conx.OpenRecordsetRO("rstL",V.Local.sQuery)
+V.Local.sItem.Set("InvoiceDetailItem")
+V.Local.sRef.Set("InvoiceDetailItemReference")
+
+F.Intrinsic.Variable.AddRV("currency","")
+
+F.Intrinsic.Control.If(V.ODBC.conx!rstL.EOF,=,False)
+	F.Intrinsic.Variable.AddRV("currency",V.ODBC.conx!rstL.FieldValTrim!ORDEr_CURRENCY)
+
+F.Intrinsic.Control.endif
+F.Intrinsic.Control.DoUntil(V.odbc.conx!rstL.eof,=,True)
+	F.global.XML.CreateElementNode(V.Local.sDoc,V.Local.sItem,"")
+	F.Intrinsic.String.Left(V.ODBC.conx!rstL.FieldVal!ORDER_LINE,3,V.Local.iLine)
+	F.Global.XML.CreateAttributeNode(V.Local.sDoc,"invoiceLineNumber",V.Local.iLine)
+	F.Global.XML.CreateAttributeNode(V.Local.sDoc,"quantity",V.ODBC.conx!rstL.FieldVal!QTY)
+	F.Global.XML.SetAttributeToNode(V.Local.sDoc,V.Local.sItem,"invoiceLineNumber")
+	F.Global.XML.SetAttributeToNode(V.Local.sDoc,V.Local.sItem,"quantity")
+	F.Global.XML.DestroyNode(V.Local.sDoc,"invoiceLineNumber")
+	F.Global.XML.DestroyNode(V.Local.sDoc,"quantity")
+
+	F.Global.XML.CreateElementNode(V.Local.sDoc,"UnitOfMeasure",V.ODBC.conx!rstL.FieldValTrim!UM)
+	F.Global.XML.AppendNode(V.Local.sDoc,V.Local.sItem,"UnitOfMeasure")
+	F.Global.XML.DestroyNode(V.Local.sDoc,"UnitOfMeasure")
+
+	'unit price
+	F.Global.XML.CreateElementNode(V.local.sDoc,"UnitPrice","")
+	F.Intrinsic.Math.Mult(V.odbc.conx!rstL.FieldValFloat!QTY,V.ODBC.conx!rstL.FieldValFloat!Price_ORDER,V.Local.dTemp)
+	F.Intrinsic.Math.Add(V.Local.dTotal,V.Local.dTemp,V.Local.dTotal)
+
+	F.Global.XML.CreateElementNode(V.Local.sDoc,"Money",V.ODBC.conx!rstL.FieldValfloat!PRICE_ORDer)
+	F.global.xml.createAttributeNode(V.local.sdoc,"currency",V.odbc.conx!rstl.fieldvaltrim!ORDER_CURRENCY)
+	F.Global.XML.SetAttributeToNode(V.Local.sDoc,"Money","currency")
+	F.Global.XML.DestroyNode(V.Local.sDoc,"currency")
+	F.Global.XML.AppendNode(V.Local.sDoc,"UnitPrice","Money")
+	F.Global.xml.DestroyNode(V.Local.sDoc,"Money")
+
+	F.Global.XML.AppendNode(V.Local.sDoc,V.Local.sItem,"UnitPrice")
+	F.Global.XML.DestroyNode(V.Local.sDoc,"UnitPrice")
+
+	'reference	
+	F.Global.XML.CreateElementNode(V.Local.sDoc,V.Local.sRef,"")
+	F.Global.XML.CreateAttributeNode(V.Local.sDoc,"lineNumber",V.Local.iLine)
+	F.Global.XML.SetAttributeToNode(V.Local.sDoc,V.Local.sItem,"lineNumber")
+	F.Global.XML.DestroyNode(V.Local.sDoc,"lineNumber")
+	F.Global.XML.CreateElementNode(V.Local.sDoc,"ItemID","")
+	F.Global.XML.CreateElementNode(V.Local.sDoc,"SupplierPartID",V.ODBC.conx!rstL.FieldValTrim!Part)
+	F.Global.XML.AppendNode(V.Local.sDoc,"ItemID","SupplierPartID")
+	F.Global.XML.DestroyNode(V.Local.sDoc,"SupplierPartID")
+	F.Global.XML.AppendNode(V.Local.sDoc,V.Local.sRef,"ItemID")
+	F.Global.XML.DestroyNode(V.Local.sDoc,"ItemID")
+	F.Global.XML.CreateElementNode(V.Local.sDoc,"Description",V.ODBC.conx!rstL.FieldValTrim!Description)
+	F.Global.XML.CreateAttributeNode(V.Local.sDoc,"xml:lang","en-US")
+	F.Global.XML.SetAttributeToNode(V.Local.sDoc,"Description","xml:lang")
+	F.Global.XML.DestroyNode(V.Local.sDoc,"xml:lang")
+	F.Global.XML.AppendNode(V.Local.sDoc,V.Local.sRef,"Description")
+	F.Global.XML.DestroyNode(V.Local.sDoc,"Description")
+
+	F.Global.XML.AppendNode(V.Local.sDoc,V.Local.sItem,V.Local.sRef)
+	F.Global.XML.DestroyNode(V.Local.sDoc,V.Local.sRef)
+	F.global.xml.AppendNode(V.local.sdoc,V.local.sheader,V.local.sitem)
+	F.global.xml.destroynode(V.local.sdoc,V.local.sitem)
+	
+	F.ODBC.conx!rstL.MoveNext
+F.Intrinsic.Control.Loop
+F.Intrinsic.Variable.AddRV("Total",V.Local.dTotal)
+
+F.ODBC.conx!rstL.Close
+
+Program.Sub.GenXMLLines.End
+
+Program.Sub.GenXMLShip.Start
+V.Local.sdoc.Declare(String)
+V.Local.sHeader.Declare(String)
+V.Local.iRow.Declare(String)
+V.Local.shold.Declare(String)
+
+V.Local.sdoc.Set(V.args.sDoc)
+V.Local.sHeader.Set(V.Args.sheader)
+V.local.iRow.Set(V.Args.irow)
+
+F.Global.xml.CreateElementNode(V.Local.sDoc,"InvoiceDetailShipping","")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Contact","")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"role","shipTo")
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"Contact","role")
+F.Global.XML.destroyNode(V.Local.sDoc,"role")
+
+Gui.F_Main.gsflexgrid1.GetTextMatrix(4,V.Local.iRow,V.Local.shold)
+F.Global.XML.CreateelementNode(V.Local.sDoc,"Name",V.Local.shold)
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"xml:lang","en-US")
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"Name","xml:lang")
+F.Global.XML.DestroyNode(V.Local.sDoc,"xml:lang")
+F.Global.XML.AppendNode(V.Local.sDoc,"Contact","Name")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Name")
+
+'start postal Address todo fetch from server
+
+F.Global.XML.CreateElementNode(V.Local.sDoc,"PostalAddress","")
+Gui.F_Main.gsflexgrid1.GetTextMatrix(5,V.Local.iRow,V.Local.shold)
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Street",V.Local.shold)
+Gui.F_Main.gsflexgrid1.GetTextMatrix(6,V.Local.iRow,V.Local.shold)
+F.Global.XML.CreateElementNode(V.Local.sDoc,"City",V.Local.shold)
+Gui.F_Main.gsflexgrid1.GetTextMatrix(7,V.Local.iRow,V.Local.shold)
+F.Global.XML.CreateElementNode(V.Local.sDoc,"State",V.Local.shold)
+Gui.F_Main.gsflexgrid1.GetTextMatrix(8,V.Local.iRow,V.Local.shold)
+F.Global.XML.CreateElementNode(V.Local.sDoc,"PostalCode",V.Local.shold)
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Country","UnitedStates")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"isoCountryCode","US")
+F.Global.XML.SetAttributeToNode(V.Local.sdoc,"Country","isoCountryCode")
+F.Global.XML.DestroyNode(V.Local.sDoc,"isoCountryCode")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","Street")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","City")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","State")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","PostalCode")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","Country")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Street")
+F.Global.XML.DestroyNode(V.Local.sDoc,"City")
+F.Global.XML.DestroyNode(V.Local.sDoc,"State")
+F.Global.XML.DestroyNode(V.Local.sDoc,"PostalCode")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Country")
+
+F.Global.XML.AppendNode(V.Local.sDoc,"Contact","PostalAddress")
+F.Global.XML.DestroyNode(V.Local.sDoc,"PostalAddress")
+
+F.Global.XML.AppendNode(V.Local.sDoc,"InvoiceDetailShipping","Contact")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Contact")
+
+'Start INvoice Partner
+F.Global.xml.CreateElementNode(V.Local.sDoc,"InvoicePartner","")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Contact","")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"role","shipFrom")
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"Contact","role")
+F.Global.XML.destroyNode(V.Local.sDoc,"role")
+
+F.Global.XML.CreateelementNode(V.Local.sDoc,"Name","Colorado Correctional Industries")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"xml:lang","en-US")
+F.Global.XML.SetAttributeToNode(V.Local.sDoc,"Name","xml:lang")
+F.Global.XML.DestroyNode(V.Local.sDoc,"xml:lang")
+F.Global.XML.AppendNode(V.Local.sDoc,"Contact","Name")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Name")
+
+'start postal Address
+F.Global.XML.CreateElementNode(V.Local.sDoc,"PostalAddress","")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Street","P.O. Box 230")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"City","Canon City")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"State","CO")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"PostalCode","81215")
+F.Global.XML.CreateElementNode(V.Local.sDoc,"Country","UnitedStates")
+F.Global.XML.CreateAttributeNode(V.Local.sDoc,"isoCountryCode","US")
+F.Global.XML.SetAttributeToNode(V.Local.sdoc,"Country","isoCountryCode")
+F.Global.XML.DestroyNode(V.Local.sDoc,"isoCountryCode")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","Street")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","City")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","State")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","PostalCode")
+F.Global.XML.AppendNode(V.Local.sDoc,"PostalAddress","Country")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Street")
+F.Global.XML.DestroyNode(V.Local.sDoc,"City")
+F.Global.XML.DestroyNode(V.Local.sDoc,"State")
+F.Global.XML.DestroyNode(V.Local.sDoc,"PostalCode")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Country")
+
+F.Global.XML.AppendNode(V.Local.sDoc,"Contact","PostalAddress")
+F.Global.XML.DestroyNode(V.Local.sDoc,"PostalAddress")
+
+F.Global.XML.AppendNode(V.Local.sDoc,"InvoiceDetailShipping","Contact")
+F.Global.XML.DestroyNode(V.Local.sDoc,"Contact")
+'end invoice partner
+F.global.XML.AppendNode(V.Local.sDoc,V.Local.sHeader,"InvoiceDetailShipping")
+F.Global.XML.DestroyNode(V.Local.sDoc,"InvoicePartner")
+
+
+Program.Sub.GenXMLShip.End
+
+Program.Sub.ProcXMLRet.Start
+
+V.Local.sDoc.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sRetFile.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sRetCode.Declare(String)
+V.Local.iX.Declare(Long)
+V.Local.sretfile.Set(V.Args.sRet)
+V.Local.sDoc.Set("XMLRET")
+
+F.Global.XML.LoadDocument(V.Local.sDoc,V.Local.sretfile,True,True,False,False)
+
+F.Global.XML.Query(V.Local.sDoc,"RET","//cXML/Response/Status")
+f.Global.XML.readNodeSetAttribute(v.Local.sDoc,"RET","code",v.Local.sRetCode)
+F.Intrinsic.Debug.Stop
+
+F.Global.XML.ReadNodeSetValue(V.Local.sDoc,"RET","text",V.Local.sRet)
+F.Intrinsic.Control.If(V.uGlobal.uInvoice.UBound,=,-1)
+	V.Uglobal.uInvoice.Redim(0,0)
+	V.Local.iX.Set(0)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Math.Add(V.uglobal.uInvoice.UBound,1,V.Local.iX)
+	V.uGlobal.uInvoice.Redimpreserve(0,V.Local.ix)
+F.Intrinsic.Control.endif
+V.uglobal.uInvoice(V.Local.iX)!Inovice.Set(V.global.iInvoiceProc)
+F.Intrinsic.Control.If(V.Local.sRetCode,=,200)
+	V.Uglobal.uInvoice(v.Local.iX)!bSuccess.Set(True)
+	F.ODBc.Connection!conx.OpenRecordsetRW("rstX","SELECT * FROM ATG_3248_InvXMLSuces")
+	F.ODBC.conx!rstX.AddNew
+	F.ODBC.conx!rstX.Set!INVOICE(V.Global.iInvoiceProc)
+	F.ODBC.conx!rstX.Set!DateTimeSent(V.Ambient.Now)
+	F.ODBC.conx!rstX.Update
+	F.ODBC.conx!rstX.close
+
+F.Intrinsic.Control.Else
+	V.Uglobal.uInvoice(v.Local.iX)!bSuccess.Set(False)
+	V.Uglobal.uInvoice(v.Local.iX)!iError.Set(V.Local.sRetCode)
+	V.uGlobal.uInvoice(V.Local.iX)!sError.Set(V.Local.sRet)
+F.Intrinsic.Control.endif
+
+F.Global.XML.CloseDocument(V.Local.sdoc)
+
+Program.Sub.ProcXMLRet.End
+
+program.sub.cmdprint_click.start
+Gui.F_SentReport.flexgrid1.Print("Invoice Transmission Report",True)
+
+program.sub.cmdprint_click.end
+
+program.sub.f_sentreport_unload.start
+gui.F_SentReport..Visible(False)
+
+program.sub.f_sentreport_unload.end
+
+Program.Sub.LoadReport.Start
+V.Local.iRows.Declare(Long)
+V.Local.iR.Declare(Long)
+
+Gui.F_SentReport.flexgrid1.Cols(4)
+Gui.F_SentReport.flexgrid1.Rows(2)
+
+Gui.F_SentReport.flexgrid1.TextMatrix(0,0,"Invoice")
+Gui.F_SentReport.flexgrid1.TextMatrix(1,0,"Success")
+Gui.F_SentReport.flexgrid1.TextMatrix(2,0,"Error Code")
+Gui.F_SentReport.flexgrid1.TextMatrix(3,0,"Error")
+
+Gui.F_SentReport.flexgrid1.ColWidth(0,1000)
+Gui.F_SentReport.flexgrid1.ColWidth(1,1000)
+Gui.F_SentReport.flexgrid1.ColWidth(2,1000)
+Gui.F_SentReport.flexgrid1.ColWidth(3,3000)
+F.Intrinsic.Math.Add(V.uglobal.uInvoice.UBound,2,V.Local.iRows)
+
+Gui.F_SentReport.flexgrid1.Rows(V.Local.iRows)
+V.Local.iRows.Set(1)
+F.Intrinsic.Control.For(V.Local.iR,0,V.uGlobal.uInvoice.UBound,1)
+	Gui.F_SentReport.flexgrid1.TextMatrix(0,V.Local.iRows,V.uglobal.uInvoice(v.local.ir)!Inovice)
+	Gui.F_SentReport.flexgrid1.TextMatrix(1,V.Local.iRows,V.uglobal.uInvoice(v.local.ir)!bSuccess)
+	Gui.F_SentReport.flexgrid1.TextMatrix(2,V.Local.iRows,V.uglobal.uInvoice(v.local.ir)!iError)
+	Gui.F_SentReport.flexgrid1.TextMatrix(3,V.Local.iRows,V.uglobal.uInvoice(v.local.ir)!sError)
+	F.Intrinsic.Math.Add(V.Local.iRows,1,V.Local.iRows)
+F.Intrinsic.Control.Next(V.Local.iR)
+
+Gui.F_sentReport.flexgrid1.FixedRows(1)
+
+Gui.F_SentReport..Show
+
+Program.Sub.LoadReport.End
+
+Program.Sub.EndTransfer.Start
+V.Local.sfile.Declare(String)
+f.Communication.https.doevents()
+
+F.Intrinsic.Control.If(V.Args.text,<>,"")
+	F.Intrinsic.String.Concat(V.caller.FilesDir,"\RET-INV",V.Caller.Terminal,".xml",V.Local.sfile)
+	F.Intrinsic.file.String2File(V.local.sfile,V.Args.text)
+	F.Intrinsic.Control.CallSub(Procxmlret,"sRet",V.Local.sfile)
+F.Intrinsic.Control.endif
+
+Program.Sub.EndTransfer.End
+
+
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$12:00:00 AM$}$False
+Program.Sub.Comments.End
